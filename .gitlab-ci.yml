@@ -10,4 +10,4 @@ testBuildDeploy:
     - npm run test
     - npm run build
     - npm install netlify-cli --save-dev
-    - npx netlify deploy
+    - npx netlify deploy --prod
