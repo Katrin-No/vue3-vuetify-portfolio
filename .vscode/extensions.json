@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "formulahendry.auto-rename-tag",
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "jdinhlife.gruvbox",
+    "ecmel.vscode-html-css",
+    "lokalise.i18n-ally",
+    "antfu.iconify",
+    "Zignd.html-css-class-completion",
+    "ms-vscode.vscode-typescript-next",
+    "ZixuanChen.vitest-explorer",
+    "PKief.material-icon-theme",
+    "folke.vscode-monorepo-workspace",
+    "christian-kohler.npm-intellisense",
+    "YoavBls.pretty-ts-errors",
+    "wayou.vscode-todo-highlight",
+    "Vue.volar",
+    "richie5um2.vscode-sort-json",
+    "Vue.vscode-typescript-vue-plugin"
+  ]
+}
