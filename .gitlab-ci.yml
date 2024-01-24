@@ -1,40 +1,13 @@
 image: node:latest
 
 stages:
-  - test
-  - build
-  - deploy
+  - testBuildDeploy
 
-cache:
-  paths:
-    - node_modules/
-
-test:
-  stage: test
+testBuildDeploy:
+  stage: testBuildDeploy
   script:
-    - npm install
+    - npm ci
     - npm run test
-  artifacts:
-    when: always
-    reports:
-      junit: test-results/*.xml
-    expire_in: 1 hour
-
-build:
-  stage: build
-  script:
-    - npm install
     - npm run build
-  artifacts:
-    paths:
-      - build
-    expire_in: 1 hour
-
-deploy_to_netlify:
-  stage: deploy
-  image: ruby:latest
-  script:
-    - gem install dpl
-    - dpl --provider=netlify --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN --dir=./dist
-  only:
-    - master
+    - npm install netlify-cli --save-dev
+    - npx netlify deploy
