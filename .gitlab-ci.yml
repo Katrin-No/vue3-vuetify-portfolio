@@ -5,9 +5,11 @@ stages:
 
 testBuildDeploy:
   stage: testBuildDeploy
+  before_script:
+    - npm install -g pnpm
   script:
-    - npm ci
-    - npm run test
-    - npm run build
-    - npm install netlify-cli --save-dev
+    - pnpm install --frozen-lockfile
+    - pnpm test
+    - pnpm build
+    - pnpm add -D netlify-cli
     - npx netlify deploy --prod
