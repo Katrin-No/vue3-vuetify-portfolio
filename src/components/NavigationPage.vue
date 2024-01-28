@@ -1,19 +1,23 @@
 <template>
-<nav>
-  <!-- Navigation Links
-  Soll stehts auf der rechten Seite zufinden sein-->
-  <ul>
-    <li><a href="#about">About Me</a></li>
-    <li><a href="#services">My Services</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#facts">Facts</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <v-navigation-drawer permanent fixed app>
+    <v-list-item title="Navigations"> </v-list-item>
+    <v-divider></v-divider>
+    <v-list dense nav>
+      <v-list-item
+        v-for="item in navigationItems"
+        :key="item.title"
+        :title="item.title"
+        :prepend-icon="item.icon"
+      ></v-list-item>
+    </v-list>
+    <v-list-item></v-list-item>
+  </v-navigation-drawer>
 </template>
 
 <script setup lang="ts">
+  const navigationItems = [
+    { title: "Home", icon: "mdi-home" },
+    { title: "About", icon: "mdi-information" },
+    { title: "Contact", icon: "mdi-email" },
+  ];
 </script>

@@ -1,5 +1,9 @@
 {
-  "singleQuote": true,
-  "semi": false,
-  "vueIndentScriptAndStyle": true
+  "singleQuote": false,
+  "semi": true,
+  "vueIndentScriptAndStyle": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "endOfLine": "auto"
 }

@@ -5,19 +5,19 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { ref } from "vue";
 
   export interface Props {
-    message?: string
+    message?: string;
   }
 
   withDefaults(defineProps<Props>(), {
-    message: 'Hello world'
-  })
+    message: "Hello world",
+  });
 
-  const count = ref(0)
+  const count = ref(0);
 
   const increment = () => {
-    count.value++
+    count.value++;
   }
 </script>

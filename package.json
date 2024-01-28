@@ -9,7 +9,8 @@
     "test": "vitest",
     "coverage": "vutest run --coverage",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "vue": "^3.2.37",

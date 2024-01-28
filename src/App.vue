@@ -1,89 +1,40 @@
-<script setup lang="ts">
-import CoverPage from './components/CoverPage.vue'
-import NavigationPage from './components/NavigationPage.vue'
-</script>
-
 <template>
-  <CoverPage name="Paul Rusch" job="SOFTWARE ENGENIEER"/>
-  <NavigationPage />
+  <v-app>
+    <!-- Header -->
+    <v-app-bar app dense>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-toolbar-title>Resume</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon="true">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+    </v-app-bar>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Lorem ipsum...</p>
-  </section>
-
-  <section id="services">
-    <h2>My Services</h2>
-    <div>
-      <h3>Web Development</h3>
-      <p>Lorem ipsum...</p>
-    </div>
-    <div>
-      <h3>Web Design</h3>
-      <p>Lorem ipsum...</p>
-    </div>
-    <div>
-      <h3>Web Consulting</h3>
-      <p>Lorem ipsum...</p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>CSS</li>
-      <li>HTML</li>
-      <li>JavaScript</li>
-      <!-- Add more skills here -->
-    </ul>
-  </section>
-
-  <section id="facts">
-    <h2>Facts</h2>
-    <ul>
-      <li>Coffees per day: 6</li>
-      <li>Launched websites: 64</li>
-      <!-- Add more facts here -->
-    </ul>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <div>
-      <h3>2018 - now: Freelance Full Stack Web Developer</h3>
-    </div>
-    <!-- Add more experiences here -->
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <!-- Project items here -->
-  </section>
-
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <!-- Testimonial items here -->
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <!-- Contact details -->
-  </section>
-
+    <!-- Main Layout -->
+    <v-row no-gutters class="flex-row-reverse">
+      <!-- Main Content Area -->
+      <v-col cols="10">
+        <v-main>
+          <v-container fluid>
+            <h1>Hallo Welt</h1>
+          </v-container>
+        </v-main>
+      </v-col>
+      <!-- Navigation -->
+      <v-col cols="2">
+        <NavigationPage> </NavigationPage>
+      </v-col>
+    </v-row>
+  </v-app>
 </template>
 
-<style scoped>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-  }
+<script setup lang="ts">
+  import NavigationPage from "./components/NavigationPage.vue";
+</script>
 
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-
-  .logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
+<style>
+  .flex-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
   }
 </style>
