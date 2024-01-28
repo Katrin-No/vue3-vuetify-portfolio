@@ -1,12 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './style.css'
+import "vuetify/styles"
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
-import BootstrapVue3 from 'bootstrap-vue-3'
+const vuetify = createVuetify({
+  components,
+  directives,
+})
 
-import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
-import 'bootstrap/dist/css/bootstrap.css'
-
-const app = createApp(App)
-app.use(BootstrapVue3)
-app.mount('#app')
+createApp(App).use(vuetify).mount('#app')

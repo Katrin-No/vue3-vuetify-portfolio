@@ -1,4 +1,3 @@
-import { BootstrapVue3 } from 'bootstrap-vue-3'
 import { mount, VueWrapper } from "@vue/test-utils"
 import HelloWorld from "src/components/HelloWorld.vue"
 import { beforeAll, describe, expect, it } from "vitest"
@@ -13,7 +12,7 @@ describe("HelloWorld.vue", () => {
     wrapper = mount(HelloWorld, {
       props: { message },
       global: {
-        plugins: [BootstrapVue3],
+        plugins: [],
       },
     })
   })
