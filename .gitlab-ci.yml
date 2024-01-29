@@ -11,5 +11,5 @@ testBuildDeploy:
     - pnpm install --frozen-lockfile
     - pnpm test
     - pnpm build
-    - pnpm add -D netlify-cli
-    - npx netlify deploy --prod
+    - pnpm add -g netlify-cli
+    - pnpm exec netlify deploy --prod
