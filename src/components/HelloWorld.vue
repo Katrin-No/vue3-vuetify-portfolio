@@ -1,7 +1,7 @@
 <template>
   <p>{{ message }} ({{ count }})</p>
 
-  <BButton ref="btnIncrement" @click="increment()"> Increment </BButton>
+  <v-btn ref="btnIncrement" @click="increment()"> Increment </v-btn>
 </template>
 
 <script lang="ts" setup>
