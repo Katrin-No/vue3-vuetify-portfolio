@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-  import NavigationPage from "./components/NavigationPage.vue";
+import NavigationPage from "./components/NavigationPage.vue";
 </script>
 
 <style>

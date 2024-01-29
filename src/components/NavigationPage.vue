@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="ts">
-  const navigationItems = [
-    { title: "Home", icon: "mdi-home" },
-    { title: "About", icon: "mdi-information" },
-    { title: "Contact", icon: "mdi-email" },
-  ];
+const navigationItems = [
+  { title: "Home", icon: "mdi-home" },
+  { title: "About", icon: "mdi-information" },
+  { title: "Contact", icon: "mdi-email" },
+];
 </script>

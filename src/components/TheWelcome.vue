@@ -4,11 +4,11 @@
 </template>
 
 <script lang="ts" setup>
-  export interface Props {
+export interface Props {
     name: string;
     job: string;
   }
-  withDefaults(defineProps<Props>(), {
-    name: "",
-  });
+withDefaults(defineProps<Props>(), {
+  name: "",
+});
 </script>
