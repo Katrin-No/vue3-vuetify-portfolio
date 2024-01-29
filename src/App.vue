@@ -33,8 +33,8 @@ import NavigationPage from "./components/NavigationPage.vue";
 </script>
 
 <style>
-  .flex-row-reverse {
-    display: flex;
-    flex-direction: row-reverse;
-  }
+.flex-row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
 </style>

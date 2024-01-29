@@ -2,7 +2,6 @@ import { mount, VueWrapper } from "@vue/test-utils";
 import HelloWorld from "src/components/HelloWorld.vue";
 import { beforeAll, describe, expect, it } from "vitest";
 
-
 describe("HelloWorld.vue", () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let wrapper: VueWrapper<any>;

@@ -8,8 +8,8 @@
 import { ref } from "vue";
 
 export interface Props {
-    message?: string;
-  }
+  message?: string;
+}
 
 withDefaults(defineProps<Props>(), {
   message: "Hello world",
