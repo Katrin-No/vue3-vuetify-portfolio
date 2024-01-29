@@ -2,7 +2,7 @@
   <v-navigation-drawer permanent fixed app>
     <v-list-item title="Navigations"> </v-list-item>
     <v-divider></v-divider>
-    <v-list>
+    <v-list density="compact" nav>
       <v-list-item
         v-for="item in navigationItems"
         :key="item.title"
