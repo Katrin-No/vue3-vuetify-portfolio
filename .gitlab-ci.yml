@@ -9,6 +9,7 @@ testBuildDeploy:
     - npm install -g pnpm
   script:
     - pnpm install --frozen-lockfile
+    - pnpm setup
     - pnpm test
     - pnpm build
     - pnpm add -g netlify-cli
