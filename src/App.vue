@@ -1,40 +1,72 @@
 <template>
-  <v-app>
-    <!-- Header -->
-    <v-app-bar app dense>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>Resume</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon="true">
-        <v-icon>mdi-home</v-icon>
-      </v-btn>
-    </v-app-bar>
+  <!-- <a href="#About2">gdfjgnr</a> -->
+  <v-card>
+    <v-toolbar color="#87436a">
+      <v-toolbar-title>Portfolio</v-toolbar-title>
+    </v-toolbar>
+    <div class="d-flex flex-row">
+      <v-tabs v-model="tab" direction="vertical" color="cyan">
+        <v-tab v-for="item in navigationItems" :key="item.title" :value="item.value">
+          <v-icon left class="mr-1">{{ item.icon }}</v-icon>
+          {{ item.title }}
+        </v-tab>
+      </v-tabs>
+      <v-window v-model="tab" direction="vertical">
+          <v-window-item v-for="item in navigationItems" 
+            class="slide" 
+            :key="`window-${item.title}`" 
+            :value="item.value">
+              <v-card flat>
+                <v-card-text>
+                  <AvatarName :item="item"/>
 
-    <!-- Main Layout -->
-    <v-row no-gutters class="flex-row-reverse">
-      <!-- Main Content Area -->
-      <v-col cols="10">
-        <v-main>
-          <v-container fluid>
-            <h1>Hallo Welt</h1>
-          </v-container>
-        </v-main>
-      </v-col>
-      <!-- Navigation -->
-      <v-col cols="2">
-        <NavigationPage> </NavigationPage>
-      </v-col>
-    </v-row>
-  </v-app>
+                  <p v-if="item.text" color="#06b2c2">{{ item.text }}</p>
+                  <br/>
+                  <p class="mb-0" color="#06b2c2">
+                    Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor. Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor.
+                  </p>
+
+                  <TimeLine :item="item"/>
+                  <!-- <SkillsStars :item="item" /> -->
+                  <SkillsSota :item="item" />
+                </v-card-text>
+              </v-card>
+          </v-window-item>
+        </v-window>
+    </div>
+  </v-card>
+
+  <TimeLine :item="item" :dots="dots" />
+  <v-card id="About2">
+    <TimeLine :item="item" :dots="dots" />
+  </v-card>
 </template>
 
-<script setup lang="ts">
-import NavigationPage from "./components/NavigationPage.vue";
-</script>
+<style scoped>
+/* 
+TODO: variables, color schema, black background
 
-<style>
-.flex-row-reverse {
-  display: flex;
-  flex-direction: row-reverse;
-}
+name-neon-y: #b6f177
+dark-neon-vi: #87436a
+neon-vi: #fbcaf2
+"cyan-accent-2", "light-green-accent-3",
+
+*/
 </style>
+
+<script setup>
+import { ref } from "vue";
+import AvatarName from "./components/AvatarName.vue";
+import TimeLine from "./components/TimeLine.vue";
+import SkillsStars from "./components/SkillsStars.vue";
+import SkillsSota from "./components/SkillsSota.vue";
+
+const navigationItems = [
+  { value: "option-1", title: "Home", icon: "mdi-account", img: true, name: "Katrin"},
+  { value: "option-2", title: "Timeline", icon: "mdi-timeline-text-outline", text: "Hello2" , timeline: true},
+  { value: "option-3", title: "Skills", icon: "mdi-bee", text: "Hello3", skills: true },
+  { value: "option-4", title: "info", icon: "mdi-email", text: "Hello3", both: true },
+];
+
+const tab = ref("option-1");
+</script>
