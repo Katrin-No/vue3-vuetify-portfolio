@@ -13,6 +13,9 @@ const vuetify = createVuetify({
   icons: {
     iconfont: "mdi", // Oder 'fa' für Font Awesome
   },
+  theme: {
+    defaultTheme: "dark"
+  }
 });
 
 createApp(App).use(vuetify).mount("#app");

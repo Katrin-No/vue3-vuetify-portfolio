@@ -10,7 +10,7 @@
       </div>
     </v-col>
     <v-col class="d-flex align-center">
-      <img src="../../public/bee.svg" color="chartreuse" style="width: 100px; height: 100px;"/>
+      <img src="../../public/bee.svg" style="width: 100px; height: 100px;"/>
     </v-col>
   </v-row> 
   <v-icon icon="fa-thin fa-person-swimming"></v-icon>   
@@ -19,10 +19,10 @@
 <style lang="scss">
 .hex-row {
   display: flex;
-  justify-content: center;
+  justify-content: center; // auskommentieren
   // Targeting the odd rows
   &:nth-child(odd) {
-    margin-left: 109px;
+    margin-left: 109px; // 55px
     margin-top: -30px;
   }
   // Targeting even rows
@@ -55,10 +55,10 @@
       align-items: center;
       width: 104px;
       height: 119px;
-      background-color: #fff; // Background color of the hexagon
+      background-color: #242424; // Background color of the hexagon
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
       &:hover {
-        background-color: #b6f177;
+        background-color: #56800e;
       }
     }
   } 

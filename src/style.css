@@ -29,6 +29,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  color: #242424
   /* place-items: center; */
   /* min-width: 320px;
   min-height: 100vh; */
@@ -36,6 +37,11 @@ body {
 
 h1 {
   font-size: 10em;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 7em;
   line-height: 1.1;
 }
 
