@@ -16,20 +16,13 @@
             class="slide" :value="item.value">
               <v-card flat>
                 <v-card-text>
-                  <AvatarName :item="item"/>
-                  <HH :item="item"/>
-
+                  <component :is="item.component"/>
+                  
                   <p v-if="item.text" class="neon-cyan">{{ item.text }}</p>
                   <br/>
-                  <p class="mb-0" color="#18FFFF">
+                  <p class="mt-15" color="#18FFFF">
                     Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor. Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor. Phasellus dolor. Fusce neque.
                   </p>
-
-                  <TimeLine :item="item"/>
-                  <!-- <SkillsStars :item="item" /> -->
-                  <SkillsSota :item="item" />
-                  <PTT :item="item" />
-                  <MyTMI :item="item" />
                 </v-card-text>
                 <!-- <NeuroCalendar /> -->
               </v-card>
@@ -66,14 +59,14 @@ import SkillsSota from "./components/SkillsSota.vue";
 import PTT from "./components/PTT.vue";
 import MyTMI from "./components/MyTMI.vue";
 
-const navigationItems = [
-  { value: "option-1", title: "Home", icon: "mdi-account", img: true, name: "Katrin"},
-  { value: "option-2", title: "Location", icon: "mdi-map-marker-outline", location: true},
-  { value: "option-3", title: "Timeline", icon: "mdi-timeline-text-outline", text: "Hello2" , timeline: true},
-  { value: "option-4", title: "Skills", icon: "mdi-hexagon-multiple-outline", text: "Hello3", skills: true },
-  { value: "option-5", title: "PTT", icon: "mdi-head-snowflake-outline", text: "Hello3", neuro: true },
-  { value: "option-6", title: "TMI", icon: "mdi-information-outline", text: "Hello3", facts: true },
-];
+const navigationItems = ref([
+  { value: "option-1", title: "Home", icon: "mdi-account", component: AvatarName},
+  { value: "option-2", title: "Location", icon: "mdi-map-marker-outline", component: HH},
+  { value: "option-3", title: "Timeline", icon: "mdi-timeline-text-outline", component: TimeLine},
+  { value: "option-4", title: "Skills", icon: "mdi-hexagon-multiple-outline", component: SkillsSota},
+  { value: "option-5", title: "PTT", icon: "mdi-head-snowflake-outline", component: PTT},
+  { value: "option-6", title: "TMI", icon: "mdi-information-outline", component: MyTMI},
+]);
 
 const tab = ref("option-1");
 </script>

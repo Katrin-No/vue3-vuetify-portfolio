@@ -1,5 +1,5 @@
 <template>
-  <v-row v-if="item.facts" class="mb-2">
+  <v-row class="mb-2">
     <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Random Facts </h3>
     <v-col cols="9">
       <v-row>
@@ -52,13 +52,7 @@
 </style>
 
 <script setup>
-import { ref, defineProps } from "vue";
-
-// Define the props the component accepts
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = defineProps({
-  item: Object,
-});
+import { ref } from "vue";
 
 function flipCard(card) {
   card.isFlipped = !card.isFlipped;

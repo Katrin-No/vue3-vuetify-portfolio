@@ -1,5 +1,5 @@
 <template>
-  <v-row v-if="item.skills">
+  <v-row>
     <v-col>
       <div class="mt-2">
         <div class="hex-row" v-for="(row, rowIndex) in sotaRows" :key="rowIndex">
@@ -65,13 +65,6 @@
 </style>
 
 <script setup>
-import { defineProps } from "vue";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = defineProps({
-  item: Object
-});
-
 const sotaRows = [
   [{name: "html css"}, {name: "js ts"}, {name: "node"}], 
   [{name: "hapi"}, {name: "vue"}, {name: "react"}], 

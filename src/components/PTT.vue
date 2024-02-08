@@ -1,5 +1,5 @@
 <template>
-  <v-row v-if="item.neuro" class="mt-2 mr-8">
+  <v-row class="mr-8">
     <v-col cols="12">
       <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Neuro Diary </h3>
       <v-radio-group inline v-model="selectedColor" @change="filterEntries">
@@ -12,7 +12,7 @@
           <v-col v-for="entry in filteredEntries" cols="12" md="2" :key="entry.id">
             <v-card class="d-flex flex-column fill-height" rounded="shaped" :color="entry.intensity" variant="outlined">
               <v-card-item>
-                <v-row class="ptt-card-header">
+                <v-row class="ptt-card-header d-flex flex-nowrap">
                   <v-col>
                     <div :class="`text-h4 mb-1 font-weight-light neon-text-${color}`">
                       {{ entry.duration }}
@@ -54,13 +54,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, computed } from "vue";
-
-// Define the props the component accepts
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = defineProps({
-  item: Object,
-});
+import { ref, computed } from "vue";
 
 const radioButtons = [
   { label: "Alle", value: "all", color: "blue"},

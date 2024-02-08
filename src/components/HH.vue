@@ -1,5 +1,5 @@
 <template>
-  <v-row v-if="item.location" class="mt-2">
+  <v-row class="mt-2">
     <v-col-4 class="mt-8 ml-4">
       <v-avatar
         image="hh-blue.jpg" 
@@ -10,19 +10,6 @@
     </v-col-4>
     <v-col cols="8" class="ml-12">
       <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Hamburg </h3>
-      <!-- <p v-for="(fact, index) in hamburgFacts" 
-        class="text-h5 font-weight-light mb-1 neon-text-p"  
-        :key="index">
-        {{ fact }}
-      </p>
-      <div class="d-flex justify-end">
-        <v-avatar
-        image="fw-p.jpg" 
-        size="300" 
-        class="mb-4" 
-        style="border-radius: 50%">
-      </v-avatar>
-      </div> -->
       <v-row>
         <v-col v-for="card in hamburgFactsCards"
           cols="12" md="4" :key="card.headline"
@@ -54,10 +41,6 @@
     </v-col>
   </v-row>
 </template>
-
-<!-- beige? #bfb48a -->
-
-<!-- color: chartreuse -->
 
 <style>
 .hh-blue {
@@ -118,15 +101,13 @@
 </style>
 
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref } from "vue";
 
-// Define the props the component accepts
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = defineProps({
-  item: Object,
-});
+// // Define the props the component accepts
+// const props = defineProps({
+//   item: Object,
+// });
 
-const variants = ["elevated", "flat", "tonal", "outlined"];
 const color = ref("primary");
 
 const radioButtons = [
@@ -134,14 +115,6 @@ const radioButtons = [
   { label: "green-accent-2", color: "green-accent-2", value: "green-accent-2" },
   { label: "secondary", color: "secondary", value: "secondary" },
   { label: "brown-lighten-3", color: "brown-lighten-3", value: "brown-lighten-3" },
-];
-
-const hamburgFacts = [
-  "- a city-state with more bridges than any other city in Europe (> 2,500)",
-  "- has one of the largest and most acoustically advanced concert halls in the world (Elbphilarmonie)",
-  "- 3rd largest port in Europe",
-  "- the Hamburg America Line was the company that commissioned the construction of Titanic",
-  "- celebrates the anniversary of the port's founding with ship parades and fireworks",
 ];
 
 const hamburgFactsCards = [
