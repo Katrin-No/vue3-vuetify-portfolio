@@ -12,10 +12,8 @@
         </v-tab>
       </v-tabs>
       <v-window v-model="tab" direction="vertical">
-          <v-window-item v-for="item in navigationItems" 
-            class="slide" 
-            :key="`window-${item.title}`" 
-            :value="item.value">
+          <v-window-item v-for="item in navigationItems" :key="`window-${item.title}`" 
+            class="slide" :value="item.value">
               <v-card flat>
                 <v-card-text>
                   <AvatarName :item="item"/>
@@ -31,6 +29,7 @@
                   <!-- <SkillsStars :item="item" /> -->
                   <SkillsSota :item="item" />
                   <PTT :item="item" />
+                  <MyTMI :item="item" />
                 </v-card-text>
                 <!-- <NeuroCalendar /> -->
               </v-card>
@@ -65,13 +64,15 @@ import TimeLine from "./components/TimeLine.vue";
 import SkillsSota from "./components/SkillsSota.vue";
 // import NeuroCalendar from "./components/NeuroCalendar.vue";
 import PTT from "./components/PTT.vue";
+import MyTMI from "./components/MyTMI.vue";
 
 const navigationItems = [
   { value: "option-1", title: "Home", icon: "mdi-account", img: true, name: "Katrin"},
-  { value: "option-2", title: "Location", icon: "mdi-pin", location: true},
+  { value: "option-2", title: "Location", icon: "mdi-map-marker-outline", location: true},
   { value: "option-3", title: "Timeline", icon: "mdi-timeline-text-outline", text: "Hello2" , timeline: true},
-  { value: "option-4", title: "Skills", icon: "mdi-bee", text: "Hello3", skills: true },
-  { value: "option-5", title: "info", icon: "mdi-email", text: "Hello3", neuro: true },
+  { value: "option-4", title: "Skills", icon: "mdi-hexagon-multiple-outline", text: "Hello3", skills: true },
+  { value: "option-5", title: "PTT", icon: "mdi-head-snowflake-outline", text: "Hello3", neuro: true },
+  { value: "option-6", title: "TMI", icon: "mdi-information-outline", text: "Hello3", facts: true },
 ];
 
 const tab = ref("option-1");
