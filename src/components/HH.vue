@@ -2,7 +2,6 @@
   <v-row v-if="item.location" class="mt-2">
     <v-col-4 class="mt-8 ml-4">
       <v-avatar
-        icon="$vuetify" 
         image="hh-blue.jpg" 
         size="330" 
         class="mt-4 mb-4" 
@@ -18,67 +17,40 @@
       </p>
       <div class="d-flex justify-end">
         <v-avatar
-        icon="$vuetify" 
         image="fw-p.jpg" 
         size="300" 
         class="mb-4" 
         style="border-radius: 50%">
       </v-avatar>
       </div> -->
-      <div> 
-        <v-row>
-          <v-col v-for="card in hamburgFactsCards"
-            cols="12"
-            md="4"
-            :key="card.headline"
-          >
-            <v-card class="d-flex flex-column fill-height" :color="color" variant="outlined">
-              <v-card-item>
-                <div class="text-overline mb-1">
-                  {{ card.overline }}
-                </div>
-                <div :class="`text-h4 mb-1 font-weight-light neon-text-${color}`">
-                  {{ card.headline }}
-                </div>
-                <div class="text-h6 font-weight-light mb-1">
-                  {{ card.text }}
-                </div>
-              </v-card-item>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row align="center">
-          <v-col
-            cols="auto"
-          >
-            <v-radio-group
-              v-model="color"
-              inline
-            >
-              <v-radio
-                label="primary"
-                color="primary"
-                value="primary"
-              ></v-radio>
-              <v-radio
-                label="green-accent-2"
-                color="green-accent-2"
-                value="green-accent-2"
-              ></v-radio>
-              <v-radio
-                label="secondary"
-                color="secondary"
-                value="secondary"
-              ></v-radio>
-              <v-radio
-                label="brown-lighten-3"
-                color="brown-lighten-3"
-                value="brown-lighten-3"
-              ></v-radio>
-            </v-radio-group>
-          </v-col>
-        </v-row>
-      </div>
+      <v-row>
+        <v-col v-for="card in hamburgFactsCards"
+          cols="12" md="4" :key="card.headline"
+        >
+          <v-card class="d-flex flex-column fill-height" :color="color" variant="outlined">
+            <v-card-item>
+              <div class="text-overline mb-1">
+                {{ card.overline }}
+              </div>
+              <div :class="`text-h4 mb-1 font-weight-light neon-text-${color}`">
+                {{ card.headline }}
+              </div>
+              <div class="text-h6 font-weight-light mb-1">
+                {{ card.text }}
+              </div>
+            </v-card-item>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col cols="auto">
+          <v-radio-group v-model="color" inline>
+            <v-radio v-for="button in radioButtons" :key="button.value" 
+              :label="button.label" :value="button.value" :color="button.color">
+            </v-radio>
+          </v-radio-group>
+        </v-col>
+      </v-row>
     </v-col>
   </v-row>
 </template>
@@ -156,6 +128,13 @@ const props = defineProps({
 
 const variants = ["elevated", "flat", "tonal", "outlined"];
 const color = ref("primary");
+
+const radioButtons = [
+  { label: "primary", color: "primary", value: "primary" },
+  { label: "green-accent-2", color: "green-accent-2", value: "green-accent-2" },
+  { label: "secondary", color: "secondary", value: "secondary" },
+  { label: "brown-lighten-3", color: "brown-lighten-3", value: "brown-lighten-3" },
+];
 
 const hamburgFacts = [
   "- a city-state with more bridges than any other city in Europe (> 2,500)",

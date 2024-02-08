@@ -3,62 +3,52 @@
     <v-col cols="12">
       <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Neuro Diary </h3>
       <v-radio-group inline v-model="selectedColor" @change="filterEntries">
-        <v-radio label="Alle" value="all" color="blue"></v-radio>
-        <v-radio label="Medium" value="yellow" color="yellow"></v-radio>
-        <v-radio label="Stark" value="orange" color="orange"></v-radio>
-        <v-radio label="Sehr stark" value="red" color="red"></v-radio>
-        <v-radio label="Medikament" value="medication" color="amber-lighten-1"></v-radio>
+        <v-radio v-for="button in radioButtons" :key="button.value" 
+          :label="button.label" :value="button.value" :color="button.color">
+        </v-radio>
       </v-radio-group>
       <h2 class="mb-4">Einträge: {{ count }}</h2>
-      <div>
         <v-row>
-          <v-col v-for="entry in filteredEntries"
-            cols="12"
-            md="2"
-            :key="entry.id"
-          >
+          <v-col v-for="entry in filteredEntries" cols="12" md="2" :key="entry.id">
             <v-card class="d-flex flex-column fill-height" rounded="shaped" :color="entry.intensity" variant="outlined">
               <v-card-item>
-                <v-row>
+                <v-row class="ptt-card-header">
                   <v-col>
                     <div :class="`text-h4 mb-1 font-weight-light neon-text-${color}`">
                       {{ entry.duration }}
                     </div>
                   </v-col>
-                  <v-col cols="2" v-if="entry.medication">
+                  <v-col v-if="entry.medication" cols="2">
                     <v-icon center class="mr-1">mdi-alert-circle-outline</v-icon>
                   </v-col>
                   <v-col cols="4" class="align-self-end">
-                    <div class="text-intensity mb-1">
-                      {{ entry.date }}
-                    </div>
-                    <div class="font-weight-light mb-1 text-body-1">
-                      {{ entry.gone }}
-                    </div>
+                    <div class="text-intensity mb-1"> {{ entry.date }} </div>
+                    <div class="font-weight-light mb-1 text-body-1">{{ entry.gone }} </div>
                   </v-col>
                 </v-row>
                 <v-divider :color="entry.intensity" :thickness="2" class="mb-1"></v-divider>
-                <div class="font-weight-light mb-1 text-body-1">
-                  <v-icon class="mr-1">mdi-help-circle-outline</v-icon>
-                  {{ entry.reason }}
-                </div>
-                <div v-if="entry.action && entry.intensity!='blue'" class="text-h6 font-weight-light mb-1 text-body-1">
-                  <v-icon class="mr-1">mdi-motion-play-outline</v-icon>
-                  {{ entry.action }}
-                </div>
-                <div v-if="entry.intensity=='blue'" class="text-h6 font-weight-light mb-1 text-body-1">
-                  <v-icon class="mr-1"> mdi-sleep-off</v-icon>
-                  {{ entry.action }}
-                </div>
-                <div v-if="entry.medication" class="text-h6 font-weight-light text-body-1">
-                  <v-icon class="mr-1">mdi-pill</v-icon>
-                  {{ entry.medication }}
+                <div class="ptt-card-body">
+                  <div class="font-weight-light mb-1 text-body-1">
+                    <v-icon class="mr-1">mdi-help-circle-outline</v-icon>
+                    {{ entry.reason }}
+                  </div>
+                  <div v-if="entry.action && entry.intensity!='blue'" class="text-h6 font-weight-light mb-1 text-body-1">
+                    <v-icon class="mr-1">mdi-motion-play-outline</v-icon>
+                    {{ entry.action }}
+                  </div>
+                  <div v-if="entry.intensity=='blue'" class="text-h6 font-weight-light mb-1 text-body-1">
+                    <v-icon class="mr-1"> mdi-sleep-off</v-icon>
+                    {{ entry.action }}
+                  </div>
+                  <div v-if="entry.medication" class="text-h6 font-weight-light text-body-1">
+                    <v-icon class="mr-1">mdi-pill</v-icon>
+                    {{ entry.medication }}
+                  </div>
                 </div>
               </v-card-item>
             </v-card>
           </v-col>
         </v-row>
-      </div>
     </v-col>
   </v-row>
 </template>
@@ -72,6 +62,13 @@ const props = defineProps({
   item: Object,
 });
 
+const radioButtons = [
+  { label: "Alle", value: "all", color: "blue"},
+  { label: "Medium", value: "yellow", color: "yellow"},
+  { label: "Stark", value: "orange", color: "orange"},
+  { label: "Sehr stark", value: "red", color: "red"},
+  { label: "Medikament", value: "medication", color:"amber-lighten-1"}
+];
 const selectedColor = ref("all");
 const neuroEntries = ref([
   {id: "1", date: "1.02", intensity: "yellow", duration: "1.5h" , reason: "Sitzen, keine Pause, wenig Luft, laut", medication: "Ibu 400", gone: "1h"},

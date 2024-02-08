@@ -1,6 +1,5 @@
 <template>
-<v-avatar v-if="item.img" 
-  icon="$vuetify" 
+<v-avatar v-if="item.img"
   image="cyber-ava.jpeg" 
   size="160" 
   class="mt-4 mb-4" 
