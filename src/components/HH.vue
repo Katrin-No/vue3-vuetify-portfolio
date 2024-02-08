@@ -25,14 +25,14 @@
         style="border-radius: 50%">
       </v-avatar>
       </div> -->
-      <div>
+      <div> 
         <v-row>
           <v-col v-for="card in hamburgFactsCards"
             cols="12"
             md="4"
             :key="card.headline"
           >
-            <v-card class="d-flex flex-column" :color="color" variant="outlined">
+            <v-card class="d-flex flex-column fill-height" :color="color" variant="outlined">
               <v-card-item>
                 <div class="text-overline mb-1">
                   {{ card.overline }}

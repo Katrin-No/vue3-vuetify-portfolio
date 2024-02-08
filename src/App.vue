@@ -24,22 +24,19 @@
                   <p v-if="item.text" class="neon-cyan">{{ item.text }}</p>
                   <br/>
                   <p class="mb-0" color="#18FFFF">
-                    Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor. Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor.
+                    Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor. Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor. Phasellus dolor. Fusce neque.
                   </p>
 
                   <TimeLine :item="item"/>
                   <!-- <SkillsStars :item="item" /> -->
                   <SkillsSota :item="item" />
+                  <PTT :item="item" />
                 </v-card-text>
+                <!-- <NeuroCalendar /> -->
               </v-card>
           </v-window-item>
         </v-window>
     </div>
-  </v-card>
-
-  <TimeLine :item="item" :dots="dots" />
-  <v-card id="About2">
-    <TimeLine :item="item" :dots="dots" />
   </v-card>
 </template>
 
@@ -66,13 +63,15 @@ import HH from "./components/HH.vue";
 import TimeLine from "./components/TimeLine.vue";
 // import SkillsStars from "./components/SkillsStars.vue";
 import SkillsSota from "./components/SkillsSota.vue";
+// import NeuroCalendar from "./components/NeuroCalendar.vue";
+import PTT from "./components/PTT.vue";
 
 const navigationItems = [
   { value: "option-1", title: "Home", icon: "mdi-account", img: true, name: "Katrin"},
   { value: "option-2", title: "Location", icon: "mdi-pin", location: true},
   { value: "option-3", title: "Timeline", icon: "mdi-timeline-text-outline", text: "Hello2" , timeline: true},
   { value: "option-4", title: "Skills", icon: "mdi-bee", text: "Hello3", skills: true },
-  { value: "option-5", title: "info", icon: "mdi-email", text: "Hello3", both: true },
+  { value: "option-5", title: "info", icon: "mdi-email", text: "Hello3", neuro: true },
 ];
 
 const tab = ref("option-1");
