@@ -39,7 +39,7 @@ import { ref } from "vue";
 import MenuTabs from "./reusable/MenuTabs.vue";
 import AvatarName from "./components/AvatarName.vue";
 import HH from "./components/HH.vue";
-import TimeLine from "./components/TimeLine.vue";
+import XP from "./components/XP.vue";
 import SkillsSota from "./components/SkillsSota.vue";
 // import NeuroCalendar from "./components/NeuroCalendar.vue";
 import PTT from "./components/PTT.vue";
@@ -48,7 +48,7 @@ import MyTMI from "./components/MyTMI.vue";
 const navigationItems = ref([
   { value: "option-1", title: "Home", icon: "mdi-account", component: AvatarName},
   { value: "option-2", title: "Location", icon: "mdi-map-marker-outline", component: HH},
-  { value: "option-3", title: "Timeline", icon: "mdi-timeline-text-outline", component: TimeLine},
+  { value: "option-3", title: "Timeline", icon: "mdi-timeline-text-outline", component: XP},
   { value: "option-4", title: "Skills", icon: "mdi-hexagon-multiple-outline", component: SkillsSota},
   { value: "option-5", title: "PTT", icon: "mdi-head-snowflake-outline", component: PTT},
   { value: "option-6", title: "TMI", icon: "mdi-information-outline", component: MyTMI},

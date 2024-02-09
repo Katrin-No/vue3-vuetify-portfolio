@@ -24,22 +24,10 @@
                 </v-row>
                 <v-divider :color="entry.intensity" :thickness="2" class="mb-1"></v-divider>
                 <div class="ptt-card-body">
-                  <div class="font-weight-light mb-1 text-body-1">
-                    <v-icon class="mr-1">mdi-help-circle-outline</v-icon>
-                    {{ entry.reason }}
-                  </div>
-                  <div v-if="entry.action && entry.intensity!='blue'" class="text-h6 font-weight-light mb-1 text-body-1">
-                    <v-icon class="mr-1">mdi-motion-play-outline</v-icon>
-                    {{ entry.action }}
-                  </div>
-                  <div v-if="entry.intensity=='blue'" class="text-h6 font-weight-light mb-1 text-body-1">
-                    <v-icon class="mr-1"> mdi-sleep-off</v-icon>
-                    {{ entry.action }}
-                  </div>
-                  <div v-if="entry.medication" class="text-h6 font-weight-light text-body-1">
-                    <v-icon class="mr-1">mdi-pill</v-icon>
-                    {{ entry.medication }}
-                  </div>
+                  <IconTextRow icon="mdi-help-circle-outline" :text="entry.reason" />
+                  <IconTextRow icon="mdi-motion-play-outline" :text="entry.action" v-if="entry.action && entry.intensity!='blue'" class="mt-0 pt-0" />
+                  <IconTextRow icon="mdi-sleep-off" :text="entry.action" v-if="entry.intensity=='blue'" class="mt-0 pt-0" />
+                  <IconTextRow icon="mdi-pill" :text="entry.medication" v-if="entry.medication" class="mt-0 pt-0"/>
                 </div>
               </v-card-item>
             </v-card>
@@ -52,6 +40,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import RadioButtons from "./../reusable/RadioButtons.vue";
+import IconTextRow from "./../reusable/IconTextRow.vue";
 
 const radioButtons = [
   { label: "Alle", value: "all", color: "blue"},

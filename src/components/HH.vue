@@ -5,26 +5,8 @@
     </v-col-4>
     <v-col cols="8" class="ml-12">
       <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Hamburg </h3>
-      <v-row>
-        <v-col v-for="card in hamburgFactsCards"
-          cols="12" md="4" :key="card.headline"
-        >
-          <v-card class="d-flex flex-column fill-height" :color="color" variant="outlined">
-            <v-card-item>
-              <div class="text-overline mb-1">
-                {{ card.overline }}
-              </div>
-              <div :class="`text-h4 mb-1 font-weight-light neon-text-${color}`">
-                {{ card.headline }}
-              </div>
-              <div class="text-h6 font-weight-light mb-1">
-                {{ card.text }}
-              </div>
-            </v-card-item>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-row align="center">
+      <FactsCards :color="color" />
+      <v-row align="center" justify="center">
         <v-col cols="auto">
           <RadioButtons :radioButtons="radioButtons" v-model="color"/>
         </v-col>
@@ -94,6 +76,7 @@
 <script setup>
 import { ref } from "vue";
 import ImageCard from "./../reusable/ImageCard.vue";
+import FactsCards from "./../reusable/FactsCards.vue";
 import RadioButtons from "./../reusable/RadioButtons.vue";
 
 const color = ref("primary");
