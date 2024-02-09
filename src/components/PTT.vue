@@ -2,11 +2,7 @@
   <v-row class="mr-8">
     <v-col cols="12">
       <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Neuro Diary </h3>
-      <v-radio-group inline v-model="selectedColor" @change="filterEntries">
-        <v-radio v-for="button in radioButtons" :key="button.value" 
-          :label="button.label" :value="button.value" :color="button.color">
-        </v-radio>
-      </v-radio-group>
+      <RadioButtons :radioButtons="radioButtons" v-model="selectedColor" @change="filterEntries" />
       <h2 class="mb-4">Einträge: {{ count }}</h2>
         <v-row>
           <v-col v-for="entry in filteredEntries" cols="12" md="2" :key="entry.id">
@@ -55,6 +51,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import RadioButtons from "./../reusable/RadioButtons.vue";
 
 const radioButtons = [
   { label: "Alle", value: "all", color: "blue"},

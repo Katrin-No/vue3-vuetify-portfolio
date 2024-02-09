@@ -1,12 +1,7 @@
 <template>
   <v-row class="mt-2">
     <v-col-4 class="mt-8 ml-4">
-      <v-avatar
-        image="hh-blue.jpg" 
-        size="330" 
-        class="mt-4 mb-4" 
-        style="border-radius: 10%">
-      </v-avatar>
+      <ImageCard image="hh-blue.jpg" size="330" />
     </v-col-4>
     <v-col cols="8" class="ml-12">
       <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Hamburg </h3>
@@ -31,11 +26,7 @@
       </v-row>
       <v-row align="center">
         <v-col cols="auto">
-          <v-radio-group v-model="color" inline>
-            <v-radio v-for="button in radioButtons" :key="button.value" 
-              :label="button.label" :value="button.value" :color="button.color">
-            </v-radio>
-          </v-radio-group>
+          <RadioButtons :radioButtons="radioButtons" v-model="color"/>
         </v-col>
       </v-row>
     </v-col>
@@ -102,11 +93,8 @@
 
 <script setup>
 import { ref } from "vue";
-
-// // Define the props the component accepts
-// const props = defineProps({
-//   item: Object,
-// });
+import ImageCard from "./../reusable/ImageCard.vue";
+import RadioButtons from "./../reusable/RadioButtons.vue";
 
 const color = ref("primary");
 
