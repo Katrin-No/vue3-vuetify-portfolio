@@ -1,8 +1,6 @@
 <template>
   <v-row>
-    <v-col>
-      <SotaRows :sotaRows="hardSkills"/>
-    </v-col>
+    <v-col><SotaRows :sotaRows="hardSkills"/></v-col>
     <v-col class="d-flex align-center">
       <img src="../../public/bee.svg" style="width: 100px; height: 100px;"/>
     </v-col>

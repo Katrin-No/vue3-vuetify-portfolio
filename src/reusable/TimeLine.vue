@@ -2,14 +2,12 @@
   <v-timeline side="end">
     <v-timeline-item v-for="dot in dots" :key="dot.id" :dot-color="dot.color" size="small">
       <template v-slot:opposite>
-        <div :class="`pt-1 headline font-weight-bold text-${dot.color}`" v-text="dot.data"></div>
+        <div :class="`pt-1 headline font-weight-bold text-${dot.color}`" v-text="dot.date"></div>
       </template>
-      <div>
-        <h2 :class="`mt-n1 headline font-weight-light mb-4 text-${dot.color}`">
-          {{ dot.title }}
-        </h2>
-        <div>{{ dot.text }}</div>
-      </div>
+      <h2 :class="`mt-n1 headline font-weight-light mb-4 text-${dot.color}`">
+        {{ dot.title }}
+      </h2>
+      <div>{{ dot.text }}</div>
     </v-timeline-item>
   </v-timeline>
 </template>
