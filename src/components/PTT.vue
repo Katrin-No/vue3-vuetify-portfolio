@@ -18,7 +18,7 @@
                   <v-icon center class="mr-1">mdi-alert-circle-outline</v-icon>
                 </v-col>
                 <v-col cols="4" class="align-self-end">
-                  <div class="text-intensity mb-1"> {{ entry.date }} </div>
+                  <div class="text-intensity mb-1"> {{ convertDate(entry.date) }} </div>
                   <div class="font-weight-light mb-1 text-body-1">{{ entry.gone }} </div>
                 </v-col>
               </v-row>
@@ -42,6 +42,7 @@
 import { ref, computed } from "vue";
 import RadioButtons from "./../reusable/RadioButtons.vue";
 import IconTextRow from "./../reusable/IconTextRow.vue";
+import neuroData from "../data/neuroEntries.js";
 
 const radioButtons = [
   { label: "Alle", value: "all", color: "blue"},
@@ -51,18 +52,16 @@ const radioButtons = [
   { label: "Medikament", value: "medication", color:"amber-lighten-1"}
 ];
 const selectedColor = ref("all");
-const neuroEntries = ref([
-  {id: "1", date: "2.02", intensity: "red", duration: "2h", reason: "Wenig Luft, zu laut, zu hell (V)", action: "Ruhe, Walk", gone: "1.5h"},
-  {id: "2", date: "4.02", intensity: "orange", duration: "1.5h", reason: "Sitzen, keine Pause, wenig Luft, laut (V)", action: "Ruhe, Walk", gone: "2h"},
-  {id: "3", date: "6.02", intensity: "yellow", duration: "0.5h" , reason: "Sturm, Regen", medication: "Ibu 400", action: "Yoga am Abend", gone: "0.5h"},
-  {id: "4", date: "6.02", intensity: "blue", duration: "4h" , reason: "Sturm, Regen", description: "konnte nicht einschlafen", gone: "9pm"},
-  {id: "5", date: "7.02", intensity: "orange", duration: "1h", reason: "Arbeit zu kompliziert, 2.5h ohne Pause", action: "Walk", gone: "3pm"},
-  {id: "6", date: "9.02", intensity: "blue", duration: "4h", reason: "Sturm, Regen", description: "konnte nicht einschlafen", gone: "9pm"},
-  {id: "7", date: "10.02", intensity: "orange", duration: "3h", reason: "Nebel, Wolken", action: "Walk", medication: "Ibu 400", gone: "9am"},
-  {id: "8", date: "13.02", intensity: "yellow", duration: "1h", reason: "Laut", action: "Ruhe, Walk", gone: "0.5h"},
-  {id: "9", date: "14.02", intensity: "yellow", duration: "2.5h", reason: "Nebel, Regen", noConcentration: true, action: "Ruhe, !work", gone: "8am"},
-]);
+
+const neuroEntries = ref(neuroData);
 const filteredEntries = ref([...neuroEntries.value]);
+
+const convertDate = (date) => {
+  const newDate = new Date(date);
+  const day = newDate.getDate(); // Get day without leading zero
+  const month = newDate.getMonth() + 1; // Get month (0-11, so add 1)
+  return `${day}.${month < 10 ? "0" : ""}${month}`; // Format: D.MM
+};
 
 const filterEntries = () => {
   filteredEntries.value = selectedColor.value === "all" ? neuroEntries.value

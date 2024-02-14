@@ -20,7 +20,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import RadioButtons from "./../reusable/RadioButtons.vue";
-import recipies from "./recipies.js";
+import recipies from "../data/recipies.js";
 
 const recipiesEntries = ref(recipies); 
 

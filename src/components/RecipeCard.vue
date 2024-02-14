@@ -37,7 +37,7 @@
   
 <script setup>
 import { ref, defineProps, onMounted } from "vue";
-import recipies from "./recipies.js";
+import recipies from "../data/recipies.js";
 
 const recipiesEntries = ref(recipies); 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
