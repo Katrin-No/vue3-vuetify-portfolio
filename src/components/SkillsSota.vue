@@ -1,11 +1,18 @@
 <template>
   <v-row>
-    <v-col><SotaRows :sotaRows="hardSkills"/></v-col>
-    <v-col class="d-flex align-center">
-      <img src="../../public/bee.svg" style="width: 100px; height: 100px;"/>
+    <v-col cols="12" md="3" sm="12" class="font-weight-bold neon-text-green-accent-2">
+      <h3 class="ml-6"> Hard & Soft Skills </h3>
     </v-col>
-  </v-row> 
-  <SotaRows :sotaRows="softSkills"/>
+    <v-col>
+      <v-row>
+        <v-col><SotaRows :sotaRows="hardSkills"/></v-col>
+        <v-col class="d-flex align-center">
+          <img src="../../public/bee.svg" style="width: 100px; height: 100px;"/>
+        </v-col>
+      </v-row> 
+      <SotaRows :sotaRows="softSkills"/>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup>

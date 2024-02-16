@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col v-for="card in hamburgFactsCards" cols="12" md="4" :key="card.headline">
+    <v-col v-for="card in hamburgFactsCards" cols="12" md="4" sm="5" :key="card.headline">
       <v-card class="d-flex flex-column fill-height" :color="color" variant="outlined">
         <v-card-item>
           <div class="text-overline mb-1">

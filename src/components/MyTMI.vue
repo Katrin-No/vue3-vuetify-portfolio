@@ -1,36 +1,44 @@
 <template>
-  <v-row class="mb-2">
-    <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Random Facts </h3>
-    <v-col cols="9">
-      <v-row>
-        <v-col v-for="card in randomFacts"
-          cols="12" md="2" :key="card.icon"
-        >
-          <v-card>
-            <div class="text-center card" @click="flipCard(card)" :class="{ 'flipped': card.isFlipped }">
-              <v-card-item class="card-front"> <!-- v-if="!card.isFlipped" -->
-                <v-icon class="mr-1 text-h4 mb-1 font-weight-light neon-text-primary">{{ card.icon }}</v-icon>
-              </v-card-item>
-               <v-card-item class="card-back">  <!-- v-if="card.isFlipped" -->
-                <p class="mr-1 text-h6 mb-1 font-weight-light neon-text-primary">{{ card.text }}</p>
-              </v-card-item>
-            </div>
-          </v-card>
-        </v-col>
-      </v-row>
+  <h3 class="font-weight-bold mb-2 neon-text-brown-lighten-3"> Random Facts </h3>
+  <v-row class="mb-2" style="width: 70vw;">
+    <v-col v-for="card in randomFacts"
+      md="2" sm="3" xs="6" :key="card.icon" no-gutters
+    >
+      <v-card>
+        <div class="text-center card" @click="flipCard(card)" :class="{ 'flipped': card.isFlipped }">
+          <v-card-item class="card-front"> <!-- v-if="!card.isFlipped" -->
+            <v-icon class="mr-1 text-h4 mb-1 font-weight-light neon-text-primary">{{ card.icon }}</v-icon>
+          </v-card-item>
+            <v-card-item class="card-back">  <!-- v-if="card.isFlipped" -->
+            <p class="mr-1 text-h6 mb-1 font-weight-light neon-text-primary">{{ card.text }}</p>
+          </v-card-item>
+        </div>
+      </v-card>
     </v-col>
   </v-row>
 </template>
 
 <style>
 .card {
-  width: 141px;
-  height: 141px;
+  width: 9.4vw;
+  height: 9.4vw;
   transform-style: preserve-3d;
   transition: transform 0.7s;
   cursor: pointer; 
   border: 1px solid #2196f3;
   border-radius: 7%;
+}
+@media (max-width: 960px) {
+  .card {
+    width: 14vw;
+    height: 14vw;
+  }
+}
+@media (max-width: 350px) {
+  .card {
+    width: 25vw;
+    height: 25vw;
+  }
 }
 
 .card.flipped {
@@ -49,6 +57,37 @@
 .card-back {
   transform: rotateY(180deg);
 }
+@media (max-width: 1492px) {
+  .card-back p { font-size: 18px !important; }
+}
+@media (max-width: 1240px) {
+  .card-back p { font-size: 14px !important; }
+}
+@media (max-width: 1045px), (max-width: 720px) {
+  .card-back p { font-size: 10px !important; }
+}
+@media (max-width: 960px) {
+  .card-back p {
+    font-size: 14px !important;
+    line-height: 1rem;
+  }
+}
+@media (max-width: 814px) {
+  .card-back p {
+    font-size: 12px !important;
+    line-height: 1rem;
+  }
+}
+@media (max-width: 620px) {
+  .card-back p {
+    font-size: 7px !important;
+    line-height: .7rem;
+  }
+  /* .card-front.text-h4 {
+    font-size: 1.5rem !important
+  } */
+}
+
 </style>
 
 <script setup>
